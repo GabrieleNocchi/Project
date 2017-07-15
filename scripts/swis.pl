@@ -1,11 +1,18 @@
 use strict;
 use warnings;
 
+# This script takes a FASTA with multiple sequences and it runs each sequence
+# using SwiSpot, installed locally; the output is slightly tweaked and redirected
+# into a file.
 
 
-open(INFILE, "check2.txt")
+
+# file.fasta is a fasta file with the intergenic regions to be analysed
+
+open(INFILE, "file.fasta")
      or die "Can't open file\n";
 
+# temp.txt is the cumulative output file produced using SwiSpot;
 
 open(OUTFILE, ">>temp.txt");
 
@@ -28,4 +35,5 @@ while (my $line = <INFILE> ) {
 
 
 close(INFILE);
+close(OUTFILE);
 
