@@ -1,10 +1,11 @@
 
-# extend .ptt reverse strand of 120 to the left
+# create a .ptt file for the reverse strand using the full .ptt file
 
 use strict;
 use warnings;
 
 
+# INFILE is the .ptt file created with makeptt.pl
 
 my $fname = $ARGV[0];
 my $fname2 = $ARGV[1];
@@ -25,7 +26,7 @@ while (my $line = <INFILE>)  {
 
     if ($line =~ /^(\d+)(\.\.\d+)(\s)(\-)(.+)/)  {
     
-    my $start = $1 - 120;
+    my $start = $1;
    
 
    my $new = $start . $2 . $3 . $4 .$5;
