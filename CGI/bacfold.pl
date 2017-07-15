@@ -1,4 +1,8 @@
 #!/usr/bin/perl
+
+
+# This script filters and display the output of SwiSpot for the sequences filtered by SD presence
+
 use strict;
 use warnings;
 use strict;
@@ -53,9 +57,9 @@ h2   {  color:red;
 __EOF
 
 
+# file.fasta is the intergenic regions file created with myparser.pl
 
-
-my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
+my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
                              -format => "fasta" ); 
 
 
@@ -67,6 +71,10 @@ while (my $seq = $seqio->next_seq) {
        my $name = $seq->primary_id;
        $hash{$name} = $string
 }
+
+
+# bac_sd_out.fasta is the output file produced with SwiSpot; it has the names of all the intergenic regions
+# which passed the SwiSpot filtering for SD sequestration in the 2 structures
 
 open(INFILE, "bac_sd_out.fasta")
     or die "Can't open file\n";
