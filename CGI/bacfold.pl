@@ -74,7 +74,8 @@ while (my $seq = $seqio->next_seq) {
 
 
 # bac_sd_out.fasta is the output file produced with SwiSpot; it has the names of all the intergenic regions
-# which passed the SwiSpot filtering for SD sequestration in the 2 structures
+# which passed the SwiSpot filtering for SD sequestration in the 2 structures. It was creted using swis.pl
+# and extractor.pl
 
 open(INFILE, "bac_sd_out.fasta")
     or die "Can't open file\n";
@@ -173,9 +174,7 @@ for my $key (keys %highlight)  {
 }
 
 
-#print "<p>$_</p>\n" for unpack '(A50)*', $gene;
 
-#system("/d/in7/s/C-cmdline-SwiSpot-0.2.3/SwiSpot -s '$gene'");
 
 
 print <<__EOF;
