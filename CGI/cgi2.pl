@@ -44,7 +44,7 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 80 nucleotides with <span class="terminator">termin</span><span class="tail">ator </span> : </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides with <span class="terminator">termin</span><span class="tail">ator </span> : </h1>
 <p> <b> Click submit to show only sequences exhibiting some degree of terminator sequestering in the 2 alternative structures calculated using SwiSpot (Barsacchi et al., 2016). </b> </p>
 <p> <span class="terminator"> Hairpin </span>  <span class="tail">  Tail </span> </p>
 
