@@ -1,4 +1,12 @@
 #!/usr/bin/perl
+
+
+# This script takes a sequence selected in bacfold.pl or bacfold2.pl and it 
+# feeds it "on-the-fly" to SwiSpot; results are printed into a file and displayed;
+# RNAfold is also used "on-the-fly" to produce .jpeg images of the structures calculated
+# with SwiSpot (using the dots and brackets notation calculated by SwiSpot as constraints).
+
+
 use strict;
 
 
