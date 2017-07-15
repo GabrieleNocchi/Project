@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+# This is the CGI which filters the intergenic sequences by SD motif
+
 use strict;
 use warnings;
 use Bio::SeqIO;
@@ -52,11 +55,13 @@ __EOF
 
 
 # this script uses bioperl; it takes the fasta file with the filtered
-# intergenic sequences above 80 nucleotides in length;
+# intergenic sequences above 70 nucleotides in length;
 # it creates an hash storing the ID of the intergenic sequences as key
 # and the actual nucleotide sequences as value.
 
-my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
+# file.fasta is the fasta with the intergenic regions created using myparser.pl
+
+my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
                              -format => "fasta" ); 
 
 
@@ -73,7 +78,8 @@ while (my $seq = $seqio->next_seq) {
 
 
 #  Filter the first hash and make a second hash with only the sequences with
-#  either 1 of the SD patterns or the terminator patterns (or both).
+#  either 1 of the SD patterns.
+
 my %hash2;
 
 foreach my $key (keys %hash)  {
