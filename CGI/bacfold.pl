@@ -46,7 +46,7 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 80 nucleotides showing some degree of <span class="sd">SD</span> sequence sequestration in 1 of the 2 alternative conformations calculated using SwiSpot : </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides showing some degree of <span class="sd">SD</span> sequence sequestration in 1 of the 2 alternative conformations calculated using SwiSpot : </h1>
 
 <p> <b> Please select a sequence and submit to show the 2 folded conformations calculated with SwiSpot (Barsacchi et al., 2016). </b> </p>
 
