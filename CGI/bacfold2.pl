@@ -45,7 +45,7 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 80 nucleotides showing a degree of <span class="terminator">termin</span><span class="tail">ator </span> sequestration in 2 alternative structures calculated using SwiSpot (Barsacchi et al., 2016): </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides showing a degree of <span class="terminator">termin</span><span class="tail">ator </span> sequestration in 2 alternative structures calculated using SwiSpot (Barsacchi et al., 2016): </h1>
 <p> <span class="terminator"> Hairpin </span>  <span class="tail">  Tail </span> </p>
 
 
