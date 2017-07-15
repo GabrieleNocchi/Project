@@ -84,6 +84,7 @@ sub wrap {
 }
 
 #  Import the forward strand terminators into an array;
+#  forward.tt is the output file for the forward strand produced using Transtermhp_v2.09
 
 
 open(INFILE, "forward.tt")
@@ -181,6 +182,7 @@ foreach my $key (keys %hash)   {
 
 # Here I repeat the exact procedure I did for the Forward Strand, this time for the 
 # Reverse Strand Terminators output.
+# reverse.tt is the reverse strand output produced using trasnterm_hp_v2.09
 
 open(INFILE2, "reverse.tt")
      or die "Can't open file\n";
