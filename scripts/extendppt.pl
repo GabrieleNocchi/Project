@@ -1,11 +1,12 @@
 
-# extended ppt forward strands of 120.
+# create a ptt file for the forward strand, using a full .ptt
 
 
 use strict;
 use warnings;
 
 
+# infile is the full .ptt, created using makeptt.pl
 
 my $fname = $ARGV[0];
 my $fname2 = $ARGV[1];
@@ -26,7 +27,7 @@ while (my $line = <INFILE>)  {
 
     if ($line =~ /^(\d+\.\.)(\d+)(\s)(\+)(.+)/)  {
     
-    my $end = $2 + 120;
+    my $end = $2;
    
 
    my $new = $1 . $end . $3 . $4 .$5;
@@ -39,3 +40,5 @@ while (my $line = <INFILE>)  {
 
 }
 
+close(INFILE);
+close(OUTFILE);
