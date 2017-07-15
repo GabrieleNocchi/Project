@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+# This is the CGI script which filters the intergenic regions for the presence of trans. terminators
+# This script filters the output produced with the programr transtermhp_v2.09
 use strict;
 use warnings;
 use Bio::SeqIO;
@@ -57,7 +60,10 @@ __EOF
 # it creates an hash storing the ID of the intergenic sequences as key
 # and the actual nucleotide sequences as value.
 
-my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
+
+# file.fasta is the file created using the script myparser.pl
+
+my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
                              -format => "fasta" ); 
 
 
@@ -103,15 +109,13 @@ my $size = scalar @array;
 # they contain a terminator from the output;
 # For this I check wether the terminator coordinates are within the intergenic coordinates.
 # If they are contained, I check at which position in the intergenic sequence the terminator
-# starts; if that is after 120 I accept the terminator;
+# starts; if that is after 60 I accept the terminator;
 # Note: we are only interested in 1 terminator, possibly the one closest to the end of the sequence;
 # In the output there can be more than 1 terminator per intergenic sequence, and they are all given in 
 # order of position.
 # By capturing this information in an array, the data keeps the order of the ouput file.
-# This was for each intergenic region I only capture the coordinates of the last terminator.
-# This because my hash %all, which contain all terminators positions and length, and where keys
-# are the sequences id, only accept 1 value per key; therefore the previous terminator is overwritten
-# if another is found after it.
+# For each intergenic region only the best scoring terminator is captured;.
+# If more than 1 terminator achieve the same highest score, the one located more downstream is chosen
 
 
 my $start;
@@ -176,7 +180,7 @@ foreach my $key (keys %hash)   {
  
 
 # Here I repeat the exact procedure I did for the Forward Strand, this time for the 
-# Reverse Strad Terminators output.
+# Reverse Strand Terminators output.
 
 open(INFILE2, "reverse.tt")
      or die "Can't open file\n";
