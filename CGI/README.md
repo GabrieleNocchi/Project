@@ -17,4 +17,4 @@ using TransTermHp_v2.09
 
 
 cgi.pl, cgi2.pl, bacfold.pl and bacfold2.pl are independent;
-fld2.pl requires to be reached via bacfold.pl or bacfold2.pl, as it runs "on-the-fly" analysis of sequences selected by the user.
+fold2.pl requires to be reached via bacfold.pl or bacfold2.pl, as it runs "on-the-fly" analysis of sequences selected by the user in those pages.
