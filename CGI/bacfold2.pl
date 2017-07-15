@@ -1,4 +1,8 @@
 #!/usr/bin/perl
+
+# This script filters the output produced by SwiSpot for the intergenic regions scanned for the presence
+# of a transcription terminator using Transtermhp_v2.09
+
 use strict;
 use warnings;
 use Bio::SeqIO;
@@ -58,7 +62,11 @@ __EOF
 # it creates an hash storing the ID of the intergenic sequences as key
 # and the actual nucleotide sequences as value.
 
-my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
+
+
+# file.fasta is the file produced using myparser.pl with all the intergenic regions of the organism of interest
+
+my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
                              -format => "fasta" ); 
 
 
@@ -293,7 +301,8 @@ foreach my $key (keys %all)  {
 
 
 
-
+# bac_ter_out.fasta has the names of all the sequences which passed SwiSpot filtering for
+# terminator sequestration; this fil was created using swis.pl and extractor.pl
 
 open(IN, "bac_ter_out.fasta")
     or die "Can't open file\n";
