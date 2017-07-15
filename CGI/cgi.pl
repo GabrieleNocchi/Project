@@ -45,7 +45,7 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 80 nucleotides with <span class="sd"> SD sequence</span> present : </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides with <span class="sd"> SD sequence</span> present : </h1>
 <p> <b> Click submit to show only sequences exhibiting some degree of SD sequestering using SwiSpot (Barsacchi et al., 2016). </b> </p>
 <body>
 <form method="post" action="http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/ng001/bacfold.pl">
