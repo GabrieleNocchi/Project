@@ -1,5 +1,10 @@
 
 #!/usr/bin/perl -w
+
+
+# THIS SCRIPT WAS NOT WRITTEN BY THE AUTHOR
+# REFERENCED BELOW
+
 use strict;
 use Bio::SeqIO;
 
@@ -15,6 +20,9 @@ open(OUTFILE, ">$fname2")
 # Written by Torsten Seemann
 # 18 September 2006
 
+
+ #  sequence.gb is the genbank file, saved locally;
+ 
 my $gbk = Bio::SeqIO->new(-file=>"sequence.gb", -format=>'genbank');
 my $seq = $gbk->next_seq;
 my @cds = grep { $_->primary_tag eq 'CDS' } $seq->get_SeqFeatures;
@@ -47,3 +55,6 @@ sub tag {
    return '-' unless $f->has_tag($tag);
    return join(' ', $f->get_tag_values($tag));
 }
+
+
+close(OUTFILE);
