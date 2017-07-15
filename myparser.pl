@@ -3,6 +3,10 @@
 use strict;
 use warnings;
 use Bio::SeqIO;
+
+# first file is the Genbank
+# second file is the output
+
 my $fname = $ARGV[0];
 my $fname2 = $ARGV[1];
 
@@ -118,7 +122,7 @@ for (my $i = 1; $i < $max; $i++)  {
 # Below I use Bioperl to read and extract the full DNA sequence of my organism into a string variable;
 
 
-
+# Below I Load the FASTA of the organism, saved in a local directory
 
 my $seqio = Bio::SeqIO->new(-file => "/d/user6/ng001/Project/sequence.fasta", 
                              -format => "fasta" ); 
@@ -172,13 +176,13 @@ foreach my $value (@all_intergenic)  {
 
 
 # Filtering the intergenic sequence has by length;
-# Only intergenic sequences above 80 nucleotides in length are retained in %hash2;
+# Only intergenic sequences above 70 nucleotides in length are retained in %hash2;
 
 my %hash2;
 
 foreach my $key (keys %hash)   {
 
-     if (length($hash{$key}) > 80)   {
+     if (length($hash{$key}) > 70)   {
          $hash2{$key} = $hash{$key};
 
      }
@@ -186,7 +190,7 @@ foreach my $key (keys %hash)   {
 
 
 
-# Create a Fasta File with the intergenic sequences above 80;
+# Create a Fasta File with the intergenic sequences above 70;
 
 foreach my $key (keys %hash2)  {
 
@@ -195,6 +199,7 @@ foreach my $key (keys %hash2)  {
 }
 
    
-
+close(INFILE);
+close(OUTFILE);
 
 
