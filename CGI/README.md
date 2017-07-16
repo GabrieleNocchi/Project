@@ -1,9 +1,9 @@
 This is the CGI folder of the visualization pipeline developed.
 In this folder there are 5 cgi scripts.
 
-cgi.pl is connected to bacfold.pl
-cgi2.pl is connected to bacfold2.pl
-Both bacfold.pl and bacfold2.pl are connected to fold2.pl
+- cgi.pl is connected to bacfold.pl
+- cgi2.pl is connected to bacfold2.pl
+- Both bacfold.pl and bacfold2.pl are connected to fold2.pl
 
 
 
