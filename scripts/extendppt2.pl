@@ -39,3 +39,5 @@ while (my $line = <INFILE>)  {
 
 }
 
+close(INFILE);
+close(OUTFILE);
