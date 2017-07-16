@@ -7,7 +7,7 @@ This is an HTML/CGI visualization tool; this pipepline searches the intergenic r
 To Install and use this application a WWW and cgi-bin directories are required; the scripts found in the directory CGI of this repository should be saved within the cgi-bin directory; the same goes for the scripts found in the WWW directory.
 
 
-In addition 5 extra files need to be pre-calculated and placed within the cgi-bin directory, and then read by the cgi scripts found in this directory; some of these file are pre-calculated using external programs, namely SwiSpot and TransTermHPv2.09, which can be a lengthy process.
+In addition 5 extra files need to be pre-calculated and placed within the cgi-bin directory; some of these files are pre-calculated using external programs, namely SwiSpot and TransTermHPv2.09, which can be a lengthy process.
 
 To create these files follow the instructions in the scripts directory.
 The files required are:
