@@ -7,7 +7,7 @@ use warnings;
 # the file is then read by bacfold.pl and bacfold2.pl
 # Note this script is used separately on the output of SwiSpot for the sequences
 # filtered by SD and those filtered by Terminators
-# The filtering changes between the 2 runs, as explained in the next comment
+
 
 open(INFILE, "temp.txt")
     or die "Can't open file\n";
@@ -21,12 +21,11 @@ my $score;
 
 while (my $line = <INFILE>) {
 
-# the code below is to filter by degree of terminator sequestration; to filter by degree of
-# SD sequestration "iT" must be replaced with "iSD";
+# filtering by iTot above 0.45 
 
-    if ($line =~ /iT: (\d\.\d+)/)  {
+    if ($line =~ /iTot: (\d\.\d+)/)  {
        $score = $1;
-       if ($score > 0)  {
+       if ($score > 0.45)  {
            $line = <INFILE>;
            chomp $line;
            
