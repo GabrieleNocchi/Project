@@ -8,10 +8,15 @@
 use strict;
 use Bio::SeqIO;
 
-my $fname2 = $ARGV[0];
 
-open(OUTFILE, ">$fname2")
-     or die "Can't open file $fname2\n";
+# First File Is The Output Being created
+# Second File is the GenBank
+
+my $fname = $ARGV[0];
+my $fname2 = $ARGV[1];
+
+open(OUTFILE, ">$fname")
+     or die "Can't open file $fname\n";
 
 # This script takes a GenBank file as input, and produces a
 # NCBI PTT file (protein table) as output. A PTT file is
@@ -23,7 +28,7 @@ open(OUTFILE, ">$fname2")
 
  #  sequence.gb is the genbank file, saved locally;
  
-my $gbk = Bio::SeqIO->new(-file=>"sequence.gb", -format=>'genbank');
+my $gbk = Bio::SeqIO->new(-file=>"$fname2", -format=>'genbank');
 my $seq = $gbk->next_seq;
 my @cds = grep { $_->primary_tag eq 'CDS' } $seq->get_SeqFeatures;
 
