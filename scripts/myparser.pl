@@ -6,9 +6,11 @@ use Bio::SeqIO;
 
 # first file is the Genbank
 # second file is the output
+# third file is the FASTA of the genome
 
 my $fname = $ARGV[0];
 my $fname2 = $ARGV[1];
+my $fname3 = $ARGV[2];
 
 open(INFILE, "$fname")
      or die "Can't open file $fname\n";
@@ -124,7 +126,7 @@ for (my $i = 1; $i < $max; $i++)  {
 
 # Below I Load the FASTA of the organism, saved in a local directory
 
-my $seqio = Bio::SeqIO->new(-file => "/d/user6/ng001/Project/sequence.fasta", 
+my $seqio = Bio::SeqIO->new(-file => "$fname3", 
                              -format => "fasta" ); 
 
 
