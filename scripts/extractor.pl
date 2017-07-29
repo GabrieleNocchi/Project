@@ -8,11 +8,12 @@ use warnings;
 # Note this script is used separately on the output of SwiSpot for the sequences
 # filtered by SD and those filtered by Terminators
 
+my $fname = $ARGV[0];
 
-open(INFILE, "temp.txt")
+open(INFILE, "$fname")
     or die "Can't open file\n";
 
-open(OUTFILE, ">bac_ter_out.fasta")
+open(OUTFILE, ">out.fasta")
      or die "Can't open file\n";
 
 
