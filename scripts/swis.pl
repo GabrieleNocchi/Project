@@ -5,11 +5,12 @@ use warnings;
 # using SwiSpot, installed locally; the output is slightly tweaked and redirected
 # into a file.
 
+my $fname = $ARGV[0];
 
 
-# file.fasta is a fasta file with the intergenic regions to be analysed
+# ARGV[0] is a fasta file with the intergenic regions to be analysed
 
-open(INFILE, "file.fasta")
+open(INFILE, "$fname")
      or die "Can't open file\n";
 
 # temp.txt is the cumulative output file produced using SwiSpot;
