@@ -78,7 +78,7 @@ my @all_intergenic;
 
 
 # In the Loop below I use the array of genes to extract the intergenic region for each;
-# Outout is an array of intergenic region coordinates.
+# Output is an array of intergenic region coordinates.
 
 my $max = scalar @all_genes;
 
