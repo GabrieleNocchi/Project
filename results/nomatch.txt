@@ -1,4 +1,4 @@
-Sequences which recorded possible regulatory activity without significant Rfam homologies:
+Regions which recorded possible regulatory activity without significant Rfam homologies:
 
 sacP(-):3905032-3905332
 ywdI(-):3896123-3896289
