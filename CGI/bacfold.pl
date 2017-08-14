@@ -1,8 +1,4 @@
 #!/usr/bin/perl
-
-
-# This script filters and display the output of SwiSpot for the sequences filtered by SD presence
-
 use strict;
 use warnings;
 use strict;
@@ -46,9 +42,9 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides showing some degree of <span class="sd">SD</span> sequence sequestration in 1 of the 2 alternative conformations calculated using SwiSpot : </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions with possible function in translation: </h1>
 
-<p> <b> Please select a sequence and submit to show the 2 folded conformations calculated with SwiSpot (Barsacchi et al., 2016). </b> </p>
+<p> <b> Please select a sequence and submit to show SwiSpot (Barsacchi et al., 2016) results. </b> </p>
 
 
 <body>
@@ -57,9 +53,9 @@ h2   {  color:red;
 __EOF
 
 
-# file.fasta is the intergenic regions file created with myparser.pl
 
-my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
+
+my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
                              -format => "fasta" ); 
 
 
@@ -71,11 +67,6 @@ while (my $seq = $seqio->next_seq) {
        my $name = $seq->primary_id;
        $hash{$name} = $string
 }
-
-
-# bac_sd_out.fasta is the output file produced with SwiSpot; it has the names of all the intergenic regions
-# which passed the SwiSpot filtering for SD sequestration in the 2 structures. It was creted using swis.pl
-# and extractor.pl
 
 open(INFILE, "bac_sd_out.fasta")
     or die "Can't open file\n";
@@ -163,6 +154,8 @@ for my $name (keys %hash2)  {
 
 for my $key (keys %highlight)  {
     my $captured = $hash2{$key} . "NAME=$key";
+
+
     print "<p> <b>$key</b> <input type='radio' name='selected_intergenic' value='$captured'/> </p>";
     my @lines = unpack '(A50)*', $hash2{$key};
     for my $pos (sort { $b <=> $a } keys %{ $highlight{$key} }) {
@@ -174,8 +167,9 @@ for my $key (keys %highlight)  {
 }
 
 
+#print "<p>$_</p>\n" for unpack '(A50)*', $gene;
 
-
+#system("/d/in7/s/C-cmdline-SwiSpot-0.2.3/SwiSpot -s '$gene'");
 
 print <<__EOF;
 
@@ -183,7 +177,7 @@ print <<__EOF;
 <br />
 
 <br />
-<p> <b> Please select a sequence and submit to show the 2 folded conformations calculated with SwiSpot (Barsacchi et al., 2016). </b> </p>
+<p> <b> Please select a sequence and submit to show SwiSpot (Barsacchi et al., 2016) results. </b> </p>
 <input type='submit' value='SUBMIT' />
 </form>
 </body>

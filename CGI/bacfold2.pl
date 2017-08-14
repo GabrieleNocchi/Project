@@ -1,8 +1,4 @@
 #!/usr/bin/perl
-
-# This script filters the output produced by SwiSpot for the intergenic regions scanned for the presence
-# of a transcription terminator using Transtermhp_v2.09
-
 use strict;
 use warnings;
 use Bio::SeqIO;
@@ -45,11 +41,11 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides showing a degree of <span class="terminator">termin</span><span class="tail">ator </span> sequestration in 2 alternative structures calculated using SwiSpot (Barsacchi et al., 2016): </h1>
+<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides with possible function in translation: </h1>
 <p> <span class="terminator"> Hairpin </span>  <span class="tail">  Tail </span> </p>
 
 
-<p> <b> Please select a sequence and submit to show the 2 folded conformations calculated with SwiSpot (Barsacchi et al., 2016). </b> </p>
+<p> <b> Please select a sequence and submit to show SwiSpot (Barsacchi et al., 2016) results. </b> </p>
 <body>
 <form method="post" action="http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/ng001/fold2.pl">
 
@@ -58,15 +54,11 @@ __EOF
 
 
 # this script uses bioperl; it takes the fasta file with the filtered
-# intergenic sequences above 80 nucleotides in length;
+# intergenic sequences above 70 nucleotides in length;
 # it creates an hash storing the ID of the intergenic sequences as key
 # and the actual nucleotide sequences as value.
 
-
-
-# file.fasta is the file produced using myparser.pl with all the intergenic regions of the organism of interest
-
-my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
+my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
                              -format => "fasta" ); 
 
 
@@ -301,8 +293,7 @@ foreach my $key (keys %all)  {
 
 
 
-# bac_ter_out.fasta has the names of all the sequences which passed SwiSpot filtering for
-# terminator sequestration; this fil was created using swis.pl and extractor.pl
+
 
 open(IN, "bac_ter_out.fasta")
     or die "Can't open file\n";
@@ -348,6 +339,8 @@ foreach my $key (keys %highlight)  {
      my $tot = $pos + $termlen{$key} + 15;
      my $exc = length($hash{$key});
      my $captured = substr($hash{$key}, 0, ($tot - 6));
+
+     
      $captured = $captured . "NAME=$key";
 
      print "<p> <b>$key</b><input type='radio' name='selected_intergenic' value='$captured'/> </p>";
@@ -389,7 +382,7 @@ foreach my $key (keys %highlight)  {
 print <<__EOF;
 
 <br />
-<p> <b> Please select a sequence and submit to show the 2 folded conformations calculated with SwiSpot (Barsacchi et al., 2016). </b> </p>
+<p> <b> Please select a sequence and submit to show SwiSpot (Barsacchi et al., 2016) results. </b> </p>
 <input type='submit' value='SUBMIT' />
 </form>
 </body>

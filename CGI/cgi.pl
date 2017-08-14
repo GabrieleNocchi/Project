@@ -1,7 +1,4 @@
 #!/usr/bin/perl
-
-# This is the CGI which filters the intergenic sequences by SD motif
-
 use strict;
 use warnings;
 use Bio::SeqIO;
@@ -45,10 +42,11 @@ h2   {  color:red;
 </style>
 
 <h1>
-<i>Bacillus subtilis strain 168 </i> intergenic regions above 70 nucleotides with <span class="sd"> SD sequence</span> present : </h1>
-<p> <b> Click submit to show only sequences exhibiting some degree of SD sequestering using SwiSpot (Barsacchi et al., 2016). </b> </p>
+<i>Bacillus subtilis strain 168 </i> intergenic regions (>70) with putative <span class="sd"> SD motifs</span>: </h1>
+<p> <b> Submit to scan the regions for possible regulatory activity using SwiSpot (Barsacchi et al., 2016). </b> </p>
 <body>
 <form method="post" action="http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/ng001/bacfold.pl">
+<input type='submit' value='SUBMIT' />
 
 __EOF
 
@@ -59,9 +57,7 @@ __EOF
 # it creates an hash storing the ID of the intergenic sequences as key
 # and the actual nucleotide sequences as value.
 
-# file.fasta is the fasta with the intergenic regions created using myparser.pl
-
-my $seqio = Bio::SeqIO->new(-file => "file.fasta", 
+my $seqio = Bio::SeqIO->new(-file => "final.fasta", 
                              -format => "fasta" ); 
 
 
@@ -78,8 +74,7 @@ while (my $seq = $seqio->next_seq) {
 
 
 #  Filter the first hash and make a second hash with only the sequences with
-#  either 1 of the SD patterns.
-
+#  either 1 of the SD patterns or the terminator patterns (or both).
 my %hash2;
 
 foreach my $key (keys %hash)  {
@@ -176,7 +171,7 @@ for my $key (keys %highlight)  {
 print <<__EOF;
 
 <br />
-<p> <b> Please submit to filter by SD sequestering using SwiSpot (Barsacchi et al., 2016). </b> </p>
+<p> <b> Submit to scan the regions using SwiSpot (Barsacchi et al., 2016). </b> </p>
 <input type='submit' value='SUBMIT' />
 </form>
 </body>
