@@ -39,13 +39,11 @@ h1   {  color: black;
 
 h2   {  color:black; 
 	font-family: Courier;
-        font-size: 120%;
-         }
+        font-size: 120%; }
 
 casual { color:black; 
 	 font-family: Consolas;
-         font-size: 120%;
-       }
+         font-size: 120%  }
 
 
 .sd  {  color: red; }
