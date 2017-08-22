@@ -1,5 +1,5 @@
 
-This directory containts the scripts necessary to create the files needed by the visualization applet to run.
+This directory containts the scripts necessary to create the files needed by the CGI pages to filter and display the sequences; the use of SwiSpot, TransTermHP and RNAfold is necessary to produce some of the files.
 
 - myparser.pl is used to create a file with the intergenic regions of an organism. It takes a GenBank file and Fasta file as Input.
 - makeptt.pl is used to create a .ptt annotation file from a GenBank file. It takes a GenBak file as Input.
