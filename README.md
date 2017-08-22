@@ -15,5 +15,6 @@ The files required are:
 - 2 output files (1 per strand) produced with TransTermHP with the terminators output.
 - 2 output files produced by SwiSpot and slightly re-formatted (using swis.pl and extractor.pl, available in "scripts"). 1 output for the sequences filtered by SD motif and 1 for the sequences filtered for terminator presence using TransTermHP_v2.09.
 
+3 additional softwares are required to be locally installed: SwiSpot(Barsacchi et al., 2016), TransTermHPv2.09 (Kingsford et al., 2007) and RNAfold from ViennaRNA Package.
 
-To Begin follow the instructions in the "scripts" directory.
+Full instructions available following the Appendix.
