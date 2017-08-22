@@ -14,3 +14,6 @@ The files required are:
 - A FASTA with the intergenic regions extracted from the organism of interest.
 - 2 output files (1 per strand) produced with TransTermHP with the terminators output.
 - 2 output files produced by SwiSpot and slightly re-formatted (using swis.pl and extractor.pl, available in "scripts"). 1 output for the sequences filtered by SD motif and 1 for the sequences filtered for terminator presence using TransTermHP_v2.09.
+
+
+To Begin follow the instructions in the "scripts" directory.
