@@ -9,4 +9,4 @@ This 2 output files are then scanned for the presence of rho-independent termina
 - extractor.pl is used to filter the output file created by swis.pl; this script creates a simpler file which is then read on the fly by bacfold.pl and bacfold2.pl
 
 
-4 files required: intergenic regions fasta, transtermhp forward strand output, transtermhp reverse strand output, swispot output for region scanned by SD, swisspot output for region scanned by terminators with transterm.
+4 files are created using this information, which are needed by the cgi scripts to display the outcome in connected web pages: intergenic regions fasta, transtermhp forward strand output, transtermhp reverse strand output, swispot output for region scanned by SD, swisspot output for region scanned by terminators with transterm.
